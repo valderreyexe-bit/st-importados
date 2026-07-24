@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ST Importados | Tecnología y Tendencias</title>
+    <meta name="description" content="Importadores directos en el Partido de La Costa. Tecnología, tendencias y artículos exclusivos.">
+    
+    <!-- Fuente Premium de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-base: #050505;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-blue: #0052ff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 82, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            padding: 50px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* Avatar Premium */
+        .avatar-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            background: linear-gradient(45deg, #0052ff, #00c3ff, #0052ff);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0.5;
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        .profile-img {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            position: relative;
+        }
+
+        /* Puntito Verde de "Online" */
+        .status-dot {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: #25D366;
+            border-radius: 50%;
+            border: 3px solid var(--bg-base);
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.6);
+            animation: pulseGreen 2s infinite;
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin: 0 0 4px 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Estrellitas de Confianza */
+        .trust-stars {
+            color: #FFD700;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .trust-stars span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-left: 5px;
+            font-weight: 300;
+        }
+
+        p.bio {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 35px;
+            line-height: 1.5;
+        }
+        .bio strong {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Botones Glassmorphism */
+        .links-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 18px 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .link-btn i {
+            font-size: 1.4rem;
+            width: 35px;
+            text-align: center;
+            margin-right: 10px;
+            opacity: 0.9;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* EL BOTÓN ESTRELLA */
+        .highlight {
+            background: linear-gradient(135deg, rgba(0, 82, 255, 0.15) 0%, rgba(0, 82, 255, 0.02) 100%);
+            border: 1px solid rgba(0, 82, 255, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 82, 255, 0.15);
+        }
+
+        .highlight i {
+            color: #0077ff;
+            text-shadow: 0 0 10px rgba(0, 119, 255, 0.5);
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: skewX(-25deg);
+            animation: shimmer 3s infinite;
+        }
+
+        .highlight:hover {
+            border-color: #0077ff;
+            box-shadow: 0 8px 25px rgba(0, 82, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 82, 255, 0.2) 0%, rgba(0, 82, 255, 0.05) 100%);
+        }
+
+        /* FOOTER CON MEDIOS DE PAGO */
+        .footer {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 15px;
+            color: #666;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #444;
+            font-weight: 300;
+        }
+
+        /* Animaciones */
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.6; transform: scale(1.05); }
+        }
+        @keyframes pulseGreen {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        @keyframes shimmer {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="avatar-container">
+            <div class="avatar-glow"></div>
+            <div class="profile-img" style="background: none; overflow: hidden; padding: 0;">
+                <img src="loog.png " alt="ST Importados" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="status-dot"></div>
+            </div>
+        </div>
+        
+        <h1>ST Importados</h1>
+        
+        <!-- Trust Stars -->
+        <div class="trust-stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(Atención verificada)</span>
+        </div>
+
+        <p class="bio">Tecnología, tendencias y artículos exclusivos.<br>📍 Envíos en el día en <strong>La Costa</strong>.</p>
+
+        <div class="links-wrapper">
+            <!-- BOTÓN PRINCIPAL -->
+            <a href="https://santavape.store" class="link-btn highlight">
+                <i class="fa-solid fa-bolt"></i>
+                Acceder al Catálogo Exclusivo 🔞
+            </a>
+
+            <!-- WHATSAPP -->
+            <a href="https://wa.me/5492216205269" class="link-btn">
+                <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i>
+                Atención al Cliente
+            </a>
+
+            <!-- INSTAGRAM -->
+            <a href="https://instagram.com" class="link-btn" target="_blank">
+                <i class="fa-brands fa-instagram" style="color: #E1306C;"></i>
+                Nuestro Instagram
+            </a>
+        </div>
+
+        <div class="footer">
+            <div class="payment-icons">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-solid fa-money-bill-transfer"></i>
+            </div>
+            <div class="copyright">
+                © 2026 ST Importados. Todos los derechos reservados.
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
